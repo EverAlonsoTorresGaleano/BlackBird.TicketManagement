@@ -1,0 +1,113 @@
+@BlackBird.TicketManagement.Presentation_HostAddress = https://localhost:7148
+
+######################
+###SECURITY END POINT
+######################
+
+### Login Async
+POST {{BlackBird.TicketManagement.Presentation_HostAddress}}/api/Security/LoginAsync
+Content-Type: application/json
+
+{
+  "grant_type": "ClientCredentials",
+  "scope": "",
+  "application_id": "BlackBird.TicketManagement.UI",
+  "user_id": "ever.torresg",
+  "user_secret": "123"
+}
+
+######################
+### USER ENDPOINT
+######################
+@tokenBearer= eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOiIyIiwiR2l2ZW5OYW1lIjoiRXZlciBBbG9uc28gVG9ycmVzIEdhbGVhbm8iLCJFbWFpbCI6ImVlYXRnODQ0QGhvdG1haWwuY29tIiwibmJmIjoxNzYwNjg3ODU2LCJleHAiOjE3NjA3MDc2NTYsImlhdCI6MTc2MDcwNTg1NiwiaXNzIjoiYmxhY2tiaXJkLmlkZW50aXR5Lmlzc3Vlci5jb20iLCJhdWQiOiIvL2F1ZGllbmNlLmJsYWNrYmlyZC5pZGVudGl0eS5jb20vYXV0aGVudGljYWQtdXNlcnMifQ.iasbv0TUHnfXBxKc2aIlVs06OJItArM8DWoubscS3Y4
+
+### Get All User Async
+GET {{BlackBird.TicketManagement.Presentation_HostAddress}}/api/User/AllAsync
+Authorization: Bearer {{tokenBearer}}
+
+### Add User Async
+POST {{BlackBird.TicketManagement.Presentation_HostAddress}}/api/User/AddAsync
+Authorization: Bearer {{tokenBearer}}
+Content-Type: application/json
+{
+  "userName": "peter.languila",
+  "userSecret": "890",
+  "name": "Peter",
+  "lastName": "Languila",
+  "email": "planguila@yopmail.com",
+  "phone": "3104201213",
+  "address": "Av la Esperanza",
+  "roleFk": 2,
+}
+
+###DisableAsync
+@userName= ever.torresg
+PATCH {{BlackBird.TicketManagement.Presentation_HostAddress}}/api/User/DisableAsync?userId={{userName}}
+Authorization: Bearer {{tokenBearer}}
+
+### Get User ByNameAsync
+GET {{BlackBird.TicketManagement.Presentation_HostAddress}}/api/User/ByNameAsync?userName={{userName}}
+Authorization: Bearer {{tokenBearer}}
+
+######################
+###TICKET END POINT
+######################
+
+### Get All Tickets Async 
+GET {{BlackBird.TicketManagement.Presentation_HostAddress}}/api/Ticket/AllAsync
+Authorization: Bearer {{tokenBearer}}
+
+### Get Ticket By Id
+@ticketId=7
+GET {{BlackBird.TicketManagement.Presentation_HostAddress}}/api/Ticket/ByIdAsync?ticketId={{ticketId}}
+Authorization: Bearer {{tokenBearer}}
+
+
+### Get Ticket History ById Async
+GET {{BlackBird.TicketManagement.Presentation_HostAddress}}/api/Ticket/HistoryByIdAsync?ticketId={{ticketId}}
+Authorization: Bearer {{tokenBearer}}
+
+
+### Add New Ticket Async
+POST {{BlackBird.TicketManagement.Presentation_HostAddress}}/api/Ticket/AddAsync
+Authorization: Bearer {{tokenBearer}}
+Content-Type: application/json
+
+{
+  "ticketTypeFk": 5,
+  "ticketStateFk": 8,
+  "createdByUserFk": 2,
+  "createdDate": "2025-10-17T05:00:53.879Z",
+  "details": null,
+  "audience": null,
+  "localization": null,
+  "eventDate": null,
+  "updatedByUserFk": null,
+  "updatedDate": null,
+  "asignedToUserFk": null
+}
+
+### Update Ticket Async
+PUT {{BlackBird.TicketManagement.Presentation_HostAddress}}/api/Ticket/UpdateAsync
+Authorization: Bearer {{tokenBearer}}
+Content-Type: application/json
+
+{
+  "ticketId": 0,
+  "ticketTypeFk": 0,
+  "ticketStateFk": 0,
+  "createdByUserFk": 0,
+  "createdDate": "2025-10-17T05:00:53.879Z",
+  "details": "string",
+  "audience": "string",
+  "localization": "string",
+  "eventDate": "2025-10-17T05:00:53.879Z",
+  "updatedByUserFk": 0,
+  "updatedDate": "2025-10-17T05:00:53.879Z",
+  "asignedToUserFk": 0,
+}
+
+### Delete Ticket Async
+DELETE {{BlackBird.TicketManagement.Presentation_HostAddress}}/api/Ticket/DeleteAsync?ticketId={{ticketId}}
+Authorization: Bearer {{tokenBearer}}
+

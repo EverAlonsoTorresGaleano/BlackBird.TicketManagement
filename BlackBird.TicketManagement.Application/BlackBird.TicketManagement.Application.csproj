@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="ExternalServices\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BlackBird.TicketManagement.Entities\BlackBird.TicketManagement.Entities.csproj" />
+    <ProjectReference Include="..\BlackBird.TicketManagement.Infrastructure\BlackBird.TicketManagement.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>

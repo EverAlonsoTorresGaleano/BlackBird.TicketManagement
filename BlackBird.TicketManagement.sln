@@ -1,0 +1,79 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36408.4
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlackBird.TicketManagement.Presentation", "BlackBird.TicketManagement.Presentation\BlackBird.TicketManagement.Presentation.csproj", "{138C4F94-200B-46A5-A532-F798467376EE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01 Presentation", "01 Presentation", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02 Entities", "02 Entities", "{3F169337-5A77-4999-B0B5-A193A72F29DC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03 Application", "03 Application", "{066D737C-A9D9-46CB-8D20-6B23A05C493A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04 Infrastructure", "04 Infrastructure", "{6ED4CE43-3AD3-4A8C-8C52-D62FAF7E45AC}"
+	ProjectSection(SolutionItems) = preProject
+		EF.md = EF.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}"
+	ProjectSection(SolutionItems) = preProject
+		Directory.packages.props = Directory.packages.props
+		Readme.md = Readme.md
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlackBird.TicketManagement.Entities", "BlackBird.TicketManagement.Entities\BlackBird.TicketManagement.Entities.csproj", "{64EDDA3A-6439-479B-A68B-EACC55E3FB73}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlackBird.TicketManagement.Application", "BlackBird.TicketManagement.Application\BlackBird.TicketManagement.Application.csproj", "{0BD60ECA-848F-4FF3-A469-93DB10F88D38}"
+	ProjectSection(ProjectDependencies) = postProject
+		{64EDDA3A-6439-479B-A68B-EACC55E3FB73} = {64EDDA3A-6439-479B-A68B-EACC55E3FB73}
+		{F446C100-AC2B-409E-A755-CBFDA00743FB} = {F446C100-AC2B-409E-A755-CBFDA00743FB}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlackBird.TicketManagement.Infrastructure", "BlackBird.TicketManagement.Infrastructure\BlackBird.TicketManagement.Infrastructure.csproj", "{F446C100-AC2B-409E-A755-CBFDA00743FB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "05 Unit Test", "05 Unit Test", "{86D0D2F8-B055-402B-A05D-FC1734D082DF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlackBird.TicketManagement.UnitTest", "BlackBird.TicketManagement.UnitTest\BlackBird.TicketManagement.UnitTest.csproj", "{A3C6CB29-9386-4D21-89C8-454167316A07}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{138C4F94-200B-46A5-A532-F798467376EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{138C4F94-200B-46A5-A532-F798467376EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{138C4F94-200B-46A5-A532-F798467376EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{138C4F94-200B-46A5-A532-F798467376EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64EDDA3A-6439-479B-A68B-EACC55E3FB73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64EDDA3A-6439-479B-A68B-EACC55E3FB73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64EDDA3A-6439-479B-A68B-EACC55E3FB73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64EDDA3A-6439-479B-A68B-EACC55E3FB73}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0BD60ECA-848F-4FF3-A469-93DB10F88D38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BD60ECA-848F-4FF3-A469-93DB10F88D38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BD60ECA-848F-4FF3-A469-93DB10F88D38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BD60ECA-848F-4FF3-A469-93DB10F88D38}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F446C100-AC2B-409E-A755-CBFDA00743FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F446C100-AC2B-409E-A755-CBFDA00743FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F446C100-AC2B-409E-A755-CBFDA00743FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F446C100-AC2B-409E-A755-CBFDA00743FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3C6CB29-9386-4D21-89C8-454167316A07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3C6CB29-9386-4D21-89C8-454167316A07}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3C6CB29-9386-4D21-89C8-454167316A07}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3C6CB29-9386-4D21-89C8-454167316A07}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{138C4F94-200B-46A5-A532-F798467376EE} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{64EDDA3A-6439-479B-A68B-EACC55E3FB73} = {3F169337-5A77-4999-B0B5-A193A72F29DC}
+		{0BD60ECA-848F-4FF3-A469-93DB10F88D38} = {066D737C-A9D9-46CB-8D20-6B23A05C493A}
+		{F446C100-AC2B-409E-A755-CBFDA00743FB} = {6ED4CE43-3AD3-4A8C-8C52-D62FAF7E45AC}
+		{A3C6CB29-9386-4D21-89C8-454167316A07} = {86D0D2F8-B055-402B-A05D-FC1734D082DF}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6614D8DE-075A-4E2F-8850-E2B438A6AB81}
+	EndGlobalSection
+EndGlobal
