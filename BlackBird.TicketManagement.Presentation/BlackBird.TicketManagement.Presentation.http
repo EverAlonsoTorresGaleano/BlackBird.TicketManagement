@@ -5,7 +5,7 @@
 ######################
 
 ### Login Async
-POST {{BlackBird.TicketManagement.Presentation_HostAddress}}/api/Security/LoginAsync
+POST {{BlackBird.TicketManagement.Presentation_HostAddress}}/api/Security/token
 Content-Type: application/json
 
 {
@@ -22,11 +22,11 @@ Content-Type: application/json
 @tokenBearer= eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOiIyIiwiR2l2ZW5OYW1lIjoiRXZlciBBbG9uc28gVG9ycmVzIEdhbGVhbm8iLCJFbWFpbCI6ImVlYXRnODQ0QGhvdG1haWwuY29tIiwibmJmIjoxNzYwNjg3ODU2LCJleHAiOjE3NjA3MDc2NTYsImlhdCI6MTc2MDcwNTg1NiwiaXNzIjoiYmxhY2tiaXJkLmlkZW50aXR5Lmlzc3Vlci5jb20iLCJhdWQiOiIvL2F1ZGllbmNlLmJsYWNrYmlyZC5pZGVudGl0eS5jb20vYXV0aGVudGljYWQtdXNlcnMifQ.iasbv0TUHnfXBxKc2aIlVs06OJItArM8DWoubscS3Y4
 
 ### Get All User Async
-GET {{BlackBird.TicketManagement.Presentation_HostAddress}}/api/User/AllAsync
+GET {{BlackBird.TicketManagement.Presentation_HostAddress}}/api/User
 Authorization: Bearer {{tokenBearer}}
 
 ### Add User Async
-POST {{BlackBird.TicketManagement.Presentation_HostAddress}}/api/User/AddAsync
+POST {{BlackBird.TicketManagement.Presentation_HostAddress}}/api/User/Add
 Authorization: Bearer {{tokenBearer}}
 Content-Type: application/json
 {
@@ -42,11 +42,11 @@ Content-Type: application/json
 
 ###DisableAsync
 @userName= ever.torresg
-PATCH {{BlackBird.TicketManagement.Presentation_HostAddress}}/api/User/DisableAsync?userId={{userName}}
+PATCH {{BlackBird.TicketManagement.Presentation_HostAddress}}/api/User/Disable?userId={{userName}}
 Authorization: Bearer {{tokenBearer}}
 
 ### Get User ByNameAsync
-GET {{BlackBird.TicketManagement.Presentation_HostAddress}}/api/User/ByNameAsync?userName={{userName}}
+GET {{BlackBird.TicketManagement.Presentation_HostAddress}}/api/User/ByName?userName={{userName}}
 Authorization: Bearer {{tokenBearer}}
 
 ######################
@@ -54,7 +54,7 @@ Authorization: Bearer {{tokenBearer}}
 ######################
 
 ### Get All Tickets Async 
-GET {{BlackBird.TicketManagement.Presentation_HostAddress}}/api/Ticket/AllAsync
+GET {{BlackBird.TicketManagement.Presentation_HostAddress}}/api/Ticket
 Authorization: Bearer {{tokenBearer}}
 
 ### Get Ticket By Id
@@ -64,12 +64,12 @@ Authorization: Bearer {{tokenBearer}}
 
 
 ### Get Ticket History ById Async
-GET {{BlackBird.TicketManagement.Presentation_HostAddress}}/api/Ticket/HistoryByIdAsync?ticketId={{ticketId}}
+GET {{BlackBird.TicketManagement.Presentation_HostAddress}}/api/Ticket/HistoryById?ticketId={{ticketId}}
 Authorization: Bearer {{tokenBearer}}
 
 
 ### Add New Ticket Async
-POST {{BlackBird.TicketManagement.Presentation_HostAddress}}/api/Ticket/AddAsync
+POST {{BlackBird.TicketManagement.Presentation_HostAddress}}/api/Ticket/Add
 Authorization: Bearer {{tokenBearer}}
 Content-Type: application/json
 
@@ -88,7 +88,7 @@ Content-Type: application/json
 }
 
 ### Update Ticket Async
-PUT {{BlackBird.TicketManagement.Presentation_HostAddress}}/api/Ticket/UpdateAsync
+PUT {{BlackBird.TicketManagement.Presentation_HostAddress}}/api/Ticket/Update
 Authorization: Bearer {{tokenBearer}}
 Content-Type: application/json
 
@@ -108,6 +108,6 @@ Content-Type: application/json
 }
 
 ### Delete Ticket Async
-DELETE {{BlackBird.TicketManagement.Presentation_HostAddress}}/api/Ticket/DeleteAsync?ticketId={{ticketId}}
+DELETE {{BlackBird.TicketManagement.Presentation_HostAddress}}/api/Ticket/Delete?ticketId={{ticketId}}
 Authorization: Bearer {{tokenBearer}}
 

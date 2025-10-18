@@ -4,6 +4,7 @@ using Asp.Versioning.Builder;
 using BlackBird.TicketManagement.Entities.Options;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Cors.Infrastructure;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
@@ -38,5 +39,19 @@ public static class ApiHelper
         return builder;
     }
 
-
+    public static IHostApplicationBuilder AddCorsOnlyForAuthorizedUrls(this IHostApplicationBuilder builder, string[] authorizedUrls)
+    {
+        string[] authorizedUrls2 = authorizedUrls;
+        builder.Services.AddCors(options =>
+        {
+            options.AddDefaultPolicy(p =>
+            {
+                p.WithOrigins(authorizedUrls2)
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .AllowCredentials();
+            });
+        });
+        return builder;
+    }
 }

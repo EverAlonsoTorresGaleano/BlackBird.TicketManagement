@@ -12,36 +12,38 @@ public static class UserEndPoint
 
     public static void MapUserEndPointt(this WebApplication app)
     {
-        var endPointGroupVersioned = app.MapGroup("api/User/");
+        var endPointGroupVersioned = app.MapGroup("api/Users/");
 
-        endPointGroupVersioned.MapGet("ByNameAsync", GetUserByName)
+        endPointGroupVersioned.MapGet("", GetAllUsers)
+          .WithSummary("Get All USers Async")
+          .WithDescription("[Requiere Authorization] Please Add Header 'Authorization'='Bearer {Token}'")
+         .RequireAuthorization();
+
+        endPointGroupVersioned.MapGet("{userId}", GetUserById)
              .WithSummary("Get Users by Name Async")
              .WithDescription("[Requiere Authorization] Please Add Header 'Authorization'='Bearer {Token}'")
              .RequireAuthorization();
 
-        endPointGroupVersioned.MapGet("AllAsync", GetAllUsers)
-            .WithSummary("Get All USers Async")
-            .WithDescription("[Requiere Authorization] Please Add Header 'Authorization'='Bearer {Token}'")
-            .RequireAuthorization();
 
-        endPointGroupVersioned.MapPost("AddAsync", AddUser)
+
+        endPointGroupVersioned.MapPost("Add", AddUser)
            .WithSummary("Add AddUser Async")
            .WithDescription("\"[Requiere Authorization] Please Add Header 'Authorization'='Bearer {Token}'")
            .RequireAuthorization();
 
-        endPointGroupVersioned.MapPatch("DisableAsync", DisableUsers)
+        endPointGroupVersioned.MapPatch("Disable/{userId}", DisableUsers)
             .WithSummary("Disable User by Id Async")
             .WithDescription("[Requiere Authorization] Please Add Header 'Authorization'='Bearer {Token}'")
             .RequireAuthorization();
 
     }
 
-    public static async Task<Results<Ok<UserDTO>, UnauthorizedHttpResult, NotFound, ValidationProblem>> GetUserByName(
+    public static async Task<Results<Ok<UserDTO>, UnauthorizedHttpResult, NotFound, ValidationProblem>> GetUserById(
     HttpRequest request,
-     [FromQuery] string userName,
+     [FromRoute] long userId,
     [FromServices] ISecurityService securityService)
     {
-        UserDTO returnObject = await securityService.GetUserByName(userName);
+        UserDTO returnObject = await securityService.GetUserById(userId);
         return returnObject == null ? TypedResults.NotFound() : TypedResults.Ok(returnObject);
     }
 
@@ -64,10 +66,10 @@ public static class UserEndPoint
 
     public static async Task<Results<Ok<bool?>, UnauthorizedHttpResult, NotFound, ValidationProblem>> DisableUsers(
     HttpRequest request,
-    [FromQuery] string userName,
+    [FromRoute] long userId,
     [FromServices] ISecurityService securityService)
     {
-        bool? returnObject = await securityService.DisableUser(userName);
+        bool? returnObject = await securityService.DisableUser(userId);
         return returnObject == null ? TypedResults.NotFound() : TypedResults.Ok(returnObject);
 
 

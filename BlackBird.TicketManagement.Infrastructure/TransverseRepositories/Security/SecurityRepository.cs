@@ -19,10 +19,10 @@ public class SecurityRepository(IDataContextFactory dataContextFactory, IClockRe
         }
         return userInfo!.ToUserDTO();
     }
-    public async Task<bool?> DisableUser(string userName)
+    public async Task<bool?> DisableUser(long userId)
     {
         var context = dataContextFactory.CreateDbContext();
-        var userDb = await context.Users.FirstOrDefaultAsync(u => u.UserName.Equals(userName));
+        var userDb = await context.Users.FirstOrDefaultAsync(u => u.UserId == userId);
         if (userDb is not null)
         {
             userDb.IsLocked = true;
@@ -32,10 +32,10 @@ public class SecurityRepository(IDataContextFactory dataContextFactory, IClockRe
         return null;
     }
 
-    public async Task<UserDTO> GetUserByName(string userName)
+    public async Task<UserDTO> GetUserById(long userId)
     {
         var context = dataContextFactory.CreateDbContext();
-        var returnValue = await context.Users.Include(u => u.RoleFkNavigation).FirstOrDefaultAsync(u => u.UserName.Equals(userName));
+        var returnValue = await context.Users.Include(u => u.RoleFkNavigation).FirstOrDefaultAsync(u => u.UserId == userId);
         return returnValue!.ToUserDTO()!;
     }
 

@@ -27,14 +27,23 @@ public class TicketRepository(IDataContextFactory dataContextFactory) : ITicketR
     public async Task<List<TicketDTO>?> GetAllTicket()
     {
         var context = dataContextFactory.CreateDbContext();
-        var resturnList = await context.Tickets.Include(t => t.TicketStateFkNavigation).Include(t => t.TicketTypeFkNavigation).ToListAsync();
+        var resturnList = await context.Tickets
+            .Include(t => t.TicketStateFkNavigation)
+            .Include(t => t.TicketTypeFkNavigation)
+            .Include(t=>t.AsignedToUserFkNavigation)
+            .Include(t=>t.CreatedByUserFkNavigation)    
+            .ToListAsync();
         return resturnList.Select(t => t.ToTicketDTO()!).ToList();
     }
 
     public async Task<TicketDTO?> GetTicketById(long ticketId)
     {
         var context = dataContextFactory.CreateDbContext();
-        var resturnValue = await context.Tickets.Include(t => t.TicketStateFkNavigation).Include(t => t.TicketTypeFkNavigation)
+        var resturnValue = await  context.Tickets
+            .Include(t => t.TicketStateFkNavigation)
+            .Include(t => t.TicketTypeFkNavigation)
+            .Include(t => t.AsignedToUserFkNavigation)
+            .Include(t => t.CreatedByUserFkNavigation)
             .FirstOrDefaultAsync(t => t.TicketId == ticketId);
         return resturnValue.ToTicketDTO();
     }

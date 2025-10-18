@@ -85,7 +85,9 @@ public static class MapperExtensions
         TicketDTO dto = new()
         {
             AsignedToUserFk = dbObjectd.AsignedToUserFk,
+            AsignedToUserName = dbObjectd.AsignedToUserFkNavigation is null ? string.Empty : dbObjectd.AsignedToUserFkNavigation.FullName,
             CreatedByUserFk = dbObjectd.CreatedByUserFk,
+            CreatedByUserName = dbObjectd.CreatedByUserFkNavigation is null ? string.Empty : dbObjectd.CreatedByUserFkNavigation.FullName,
             CreatedDate = dbObjectd.CreatedDate,
             Details = dbObjectd.Details,
             TicketId = dbObjectd.TicketId,

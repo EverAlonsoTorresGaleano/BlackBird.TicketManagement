@@ -13,7 +13,7 @@ public static class SecurityEndPoint
     {
         var endPointGroupVersioned = app.MapGroup("api/Security/");
 
-        endPointGroupVersioned.MapPost("LoginAsync", Login)
+        endPointGroupVersioned.MapPost("token", Login)
             .WithSummary("Login Async in order to Generate Jwt Token Bearer")
             .WithDescription("[Anonymous]")
             .AllowAnonymous();

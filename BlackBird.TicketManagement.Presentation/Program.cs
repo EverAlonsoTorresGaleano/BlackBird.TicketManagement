@@ -42,6 +42,9 @@ builder.AddAuthenticationForJwtServer(identityServiceServerOptions!);
 builder.Services.AddAuthorization();
 
 builder.Services.AddControllers();
+builder.AddCorsOnlyForAuthorizedUrls(identityServiceServerOptions!.AuthorizedUrls!);
+
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -49,6 +52,7 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
+app.UseCors();
 
 
 app.MapSecurityEndPoint();

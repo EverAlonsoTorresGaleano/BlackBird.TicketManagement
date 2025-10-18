@@ -10,6 +10,8 @@ public record TicketDTO
 
     public long CreatedByUserFk { get; set; }
 
+    public string  CreatedByUserName { get; set; }
+
     public DateTime CreatedDate { get; set; }
 
     public string? Details { get; set; }
@@ -25,6 +27,8 @@ public record TicketDTO
     public DateTime? UpdatedDate { get; set; }
 
     public long? AsignedToUserFk { get; set; }
+
+    public string AsignedToUserName { get; set; }
 
     public string TicketTypeName { get; set; }
 

@@ -39,15 +39,15 @@ public class SecurityService(ISecurityRepository securityRepository, IClockRepos
         return returnValue;
     }
 
-    public async Task<bool?> DisableUser(string userName)
+    public async Task<bool?> DisableUser(long userId)
     {
-        bool? returnValue = await securityRepository.DisableUser(userName);
+        bool? returnValue = await securityRepository.DisableUser(userId);
         return returnValue;
     }
 
-    public async Task<UserDTO> GetUserByName(string userName)
+    public async Task<UserDTO> GetUserById(long userId)
     {
-        UserDTO returnValue = await securityRepository.GetUserByName(userName);
+        UserDTO returnValue = await securityRepository.GetUserById(userId);
         return returnValue;
     }
     public async Task<List<UserDTO>> GetAllUsers()
